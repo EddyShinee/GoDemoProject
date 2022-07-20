@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
 
 	"github.com/EDDYCJY/go-gin-example/models"
 	"github.com/EDDYCJY/go-gin-example/pkg/gredis"
 	"github.com/EDDYCJY/go-gin-example/pkg/logging"
 	"github.com/EDDYCJY/go-gin-example/pkg/setting"
-	"github.com/EDDYCJY/go-gin-example/routers"
 	"github.com/EDDYCJY/go-gin-example/pkg/util"
+	"github.com/EDDYCJY/go-gin-example/routers"
 )
 
 func init() {
@@ -58,9 +57,9 @@ func main() {
 	//server.BeforeBegin = func(add string) {
 	//	log.Printf("Actual pid is %d", syscall.Getpid())
 	//}
-	//
-	//err := server.ListenAndServe()
-	//if err != nil {
-	//	log.Printf("Server err: %v", err)
-	//}
+
+	err := server.ListenAndServe()
+	if err != nil {
+		log.Printf("Server err: %v", err)
+	}
 }
